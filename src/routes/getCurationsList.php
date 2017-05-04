@@ -1,20 +1,22 @@
 <?php
 
-$app->post('/api/FinancialTimes/getContentById', function ($request, $response) {
+$app->post('/api/FinancialTimes/getCurationsList', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'itemId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
 
-    $url = $settings['apiUrl'] . "/" . $postData['args']['itemId'];
+    $url = $settings['apiUrl'] . "/search/curations/v1";
+
+    $param['apiKey'] = $postData['args']['apiKey'];
 
     try {
         /** @var GuzzleHttp\Client $client */

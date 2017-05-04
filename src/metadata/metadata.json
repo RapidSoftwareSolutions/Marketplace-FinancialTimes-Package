@@ -1,26 +1,213 @@
 {
-  "package": "YahooWeatherAPI",
-  "tagline": "Yahoo! Weather API Wrapper",
-  "description": "",
-  "image": "",
-  "repo": "",
-  "keywords": [],
+  "package": "FinancialTimes",
+  "tagline": "Financial Times API",
+  "description": "Get financial news, blog posts and articles.",
+  "image": "https://logo.clearbit.com/ft.com?s=128",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-FinancialTimes-Package",
+  "keywords": [
+    "API",
+    "content",
+    "finance",
+    "news"
+  ],
   "accounts": {
-    "domain": "google.com",
+    "domain": "ft.com",
     "credentials": [
       "apiKey"
     ]
   },
   "blocks": [
     {
-      "name": "getWeatherForecast",
-      "description": "This endpoint allows to receive weather information.",
+      "name": "getContentById",
+      "description": "Get FT content by id",
       "args": [
         {
           "name": "apiKey",
           "type": "String",
-          "info": "The location for the weather forecast as a WOEID, example is 2487889 (San Diego, CA). Required if location not provided.",
+          "info": "Api key",
           "required": true
+        },
+        {
+          "name": "itemId",
+          "type": "String",
+          "info": "Item ID",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getContentNotifications",
+      "description": "Notifications enable you to recognise what has changed recently. In general, when you begin consuming the notification resource, use the current date and time; if you want to consume historical notifications, please contact your support representative. The response includes a list of Notifications, where each Notification resource represents content that has been modified on or after the values provided in the request; and a list of links, containing the url to use in retrieving the next set of results, so that you don't miss any changes.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Api key",
+          "required": true
+        },
+        {
+          "name": "since",
+          "type": "String",
+          "info": "The start date and time: any content created, updated or deleted since this date should be returned. A valid since parameter must be supplied, and it must be in RFC3339 date time format, for UTC timezone: e.g. 2017-01-06T10:00:00.000Z The date and time must not be in the future.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCurationsList",
+      "description": "An API endpoint to discover a list of curations that can be specified in search API queries. Curations allow the API consumer to specify a curated set of content and describes the scope against which a Query will operate. It is not a format type.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Api key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAspectsList",
+      "description": "An API endpoint to discover which aspects can be used in search API queries. Aspects allow the API consumer to specify the aspects of content they wish to be included within their search results.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Api key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getFacetsList",
+      "description": "An API endpoint to discover a list of facets that can be specified in search API queries.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Api key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchContent",
+      "description": "Search for items of content that are available on www.ft.com.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Api key",
+          "required": true
+        },
+        {
+          "name": "queryString",
+          "type": "String",
+          "info": "Query to search",
+          "required": true
+        },
+        {
+          "name": "curations",
+          "type": "String",
+          "info": "Comma-separated list of curations. See getCurationsList endpoint for details",
+          "required": false
+        },
+        {
+          "name": "aspects",
+          "type": "String",
+          "info": "Comma-separated list of aspects. See getAspectsList endpoint for details",
+          "required": false
+        },
+        {
+          "name": "maxResults",
+          "type": "Number",
+          "info": "Maximum number of results you would like to get. The default and maximum value of maxResults is 100.",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "Number",
+          "info": "Zero based offset to specify where results should begin. The default is 0.",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "String",
+          "info": "Either ASC for ascending or DESC for descending order.",
+          "required": false
+        },
+        {
+          "name": "sortField",
+          "type": "String",
+          "info": "The name of a sortable field.",
+          "required": false
+        },
+        {
+          "name": "facetNames",
+          "type": "String",
+          "info": "Facets allow consumers to navigate through their results by refining their query. Facets can be provided in the resultContext:",
+          "required": false
+        },
+        {
+          "name": "facetsMaxElements",
+          "type": "Number",
+          "info": "facetsMaxElements is the maximum number of facet elements to return (-1 is all facets)",
+          "required": false
+        },
+        {
+          "name": "facetsMinThreshold",
+          "type": "Number",
+          "info": "facetsMinThreshold is the minimum count required for inclusion.",
+          "required": false
         }
       ],
       "callbacks": [

@@ -28,7 +28,7 @@ $app->post('/api/FinancialTimes/getContentNotifications', function ($request, $r
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
         $vendorResponse = $client->get($url, [
-            'param' => $params
+            'query' => $params
         ]);
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {
