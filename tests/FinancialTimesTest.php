@@ -16,7 +16,12 @@ class FinancialTimesTest extends BaseTestCase
 
     public function dataProvider() {
         return [
-
+            ['getContentById'],
+            ['getCurationsList'],
+            ['getAspectsList'],
+            ['getFacetsList'],
+            ['searchContent'],
+            ['getContentNotifications']
         ];
     }
 }
