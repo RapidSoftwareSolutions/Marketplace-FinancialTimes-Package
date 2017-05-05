@@ -11,7 +11,7 @@ Get FT content by id
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Api key
+| apiKey| credentials| Api key
 | itemId| String| Item ID
 
 ## FinancialTimes.getContentNotifications
@@ -27,7 +27,7 @@ An API endpoint to discover a list of curations that can be specified in search 
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Api key
+| apiKey| credentials| Api key
 
 ## FinancialTimes.getAspectsList
 An API endpoint to discover which aspects can be used in search API queries. Aspects allow the API consumer to specify the aspects of content they wish to be included within their search results.
@@ -41,14 +41,14 @@ An API endpoint to discover a list of facets that can be specified in search API
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Api key
+| apiKey| credentials| Api key
 
 ## FinancialTimes.searchContent
 Search for items of content that are available on www.ft.com.
 
 | Field             | Type  | Description
 |-------------------|-------|----------
-| apiKey            | String| Api key
+| apiKey            | credentials| Api key
 | queryString       | String| Query to search
 | curations         | String| Comma-separated list of curations. See getCurationsList endpoint for details
 | aspects           | String| Comma-separated list of aspects. See getAspectsList endpoint for details
