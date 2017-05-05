@@ -19,7 +19,7 @@ Notifications enable you to recognise what has changed recently. In general, whe
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Api key
+| apiKey| credentials| Api key
 | since | String| The start date and time: any content created, updated or deleted since this date should be returned. A valid since parameter must be supplied, and it must be in RFC3339 date time format, for UTC timezone: e.g. 2017-01-06T10:00:00.000Z The date and time must not be in the future.
 
 ## FinancialTimes.getCurationsList
@@ -34,7 +34,7 @@ An API endpoint to discover which aspects can be used in search API queries. Asp
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Api key
+| apiKey| credentials| Api key
 
 ## FinancialTimes.getFacetsList
 An API endpoint to discover a list of facets that can be specified in search API queries.
