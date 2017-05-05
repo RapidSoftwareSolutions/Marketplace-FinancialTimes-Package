@@ -23,7 +23,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         },
@@ -51,7 +51,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         },
@@ -79,7 +79,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         }
@@ -101,7 +101,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         }
@@ -123,7 +123,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         }
@@ -145,7 +145,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Api key",
           "required": true
         },
