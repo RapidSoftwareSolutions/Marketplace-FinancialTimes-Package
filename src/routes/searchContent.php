@@ -39,7 +39,7 @@ $app->post('/api/FinancialTimes/searchContent', function ($request, $response) {
     if (isset($postData['args']['sortField']) && strlen($postData['args']['sortField']) > 0) {
         $json['resultContext']['sortField'] = $postData['args']['sortField'];
     }
-    if (isset($postData['args']['aspects'])) {
+    if (!empty($postData['args']['aspects'])) {
         if (is_array($postData['args']['aspects'])) {
             $json['resultContext']['aspects'] = $postData['args']['aspects'];
         }
@@ -47,7 +47,7 @@ $app->post('/api/FinancialTimes/searchContent', function ($request, $response) {
             $json['resultContext']['aspects'] = explode(',', $postData['args']['aspects']);
         }
     }
-    if (isset($postData['args']['facetNames'])) {
+    if (!empty($postData['args']['facetNames'])) {
         if (is_array($postData['args']['facetNames'])) {
             $json['resultContext']['facets']['names'] = $postData['args']['facetNames'];
         }
