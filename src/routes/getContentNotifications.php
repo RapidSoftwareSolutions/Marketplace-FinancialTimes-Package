@@ -21,7 +21,8 @@ $app->post('/api/FinancialTimes/getContentNotifications', function ($request, $r
     ];
 
     if (isset($postData['args']['since']) && strlen($postData['args']['since']) > 0) {
-        $params['since'] = $postData['args']['since'];
+        $date = new DateTime($postData['a']['since']);
+        $params['since'] = $date->format(DateTime::RFC3339);
     }
 
     try {

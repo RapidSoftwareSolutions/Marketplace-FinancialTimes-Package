@@ -50,8 +50,8 @@ Search for items of content that are available on www.ft.com.
 |-------------------|-------|----------
 | apiKey            | credentials| Api key
 | queryString       | String| Query to search
-| curations         | String| Comma-separated list of curations. See getCurationsList endpoint for details
-| aspects           | String| Comma-separated list of aspects. See getAspectsList endpoint for details
+| curations         | Array | List of curations. See getCurationsList endpoint for details
+| aspects           | Array | List of aspects. See getAspectsList endpoint for details
 | maxResults        | Number| Maximum number of results you would like to get. The default and maximum value of maxResults is 100.
 | offset            | Number| Zero based offset to specify where results should begin. The default is 0.
 | sortOrder         | String| Either ASC for ascending or DESC for descending order.

@@ -57,7 +57,7 @@
         },
         {
           "name": "since",
-          "type": "String",
+          "type": "DatePicker",
           "info": "The start date and time: any content created, updated or deleted since this date should be returned. A valid since parameter must be supplied, and it must be in RFC3339 date time format, for UTC timezone: e.g. 2017-01-06T10:00:00.000Z The date and time must not be in the future.",
           "required": false
         }
@@ -157,15 +157,25 @@
         },
         {
           "name": "curations",
-          "type": "String",
-          "info": "Comma-separated list of curations. See getCurationsList endpoint for details",
-          "required": false
+          "type": "List",
+          "info": "List of curations. See getCurationsList endpoint for details",
+          "required": false,
+          "structure": {
+            "name": "curation",
+            "type": "String",
+            "info": "Curation from getCurationsList endpoint"
+          }
         },
         {
           "name": "aspects",
-          "type": "String",
-          "info": "Comma-separated list of aspects. See getAspectsList endpoint for details",
-          "required": false
+          "type": "List",
+          "info": "List of aspects. See getAspectsList endpoint for details",
+          "required": false,
+          "structure": {
+            "name": "aspect",
+            "type": "String",
+            "info": "Aspect from getAspectsList endpoint"
+          }
         },
         {
           "name": "maxResults",
@@ -181,7 +191,8 @@
         },
         {
           "name": "sortOrder",
-          "type": "String",
+          "type": "Select",
+          "options": ["ASC", "DESC"],
           "info": "Either ASC for ascending or DESC for descending order.",
           "required": false
         },
