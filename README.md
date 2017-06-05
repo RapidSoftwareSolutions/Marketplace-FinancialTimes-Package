@@ -5,7 +5,17 @@ Get financial news, blog posts and articles.
 
 ## How to get credentials: 
 1. Get apiKey from [https://developer.ft.com/](https://developer.ft.com/)
- 
+
+
+## Custom datatypes: 
+|Datatype|Description|Example
+|--------|-----------|----------
+|Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+|Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+|List|Simple array|```["123", "sample"]``` 
+|Select|String with predefined values|```sample```
+|Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+
 ## FinancialTimes.getContentById
 Get FT content by id
 
@@ -20,7 +30,7 @@ Notifications enable you to recognise what has changed recently. In general, whe
 | Field | Type  | Description
 |-------|-------|----------
 | apiKey| credentials| Api key
-| since | String| The start date and time: any content created, updated or deleted since this date should be returned. A valid since parameter must be supplied, and it must be in RFC3339 date time format, for UTC timezone: e.g. 2017-01-06T10:00:00.000Z The date and time must not be in the future.
+| since | DatePicker| The start date and time: any content created, updated or deleted since this date should be returned. A valid since parameter must be supplied, and it must be in RFC3339 date time format, for UTC timezone: e.g. 2017-01-06T10:00:00.000Z The date and time must not be in the future.
 
 ## FinancialTimes.getCurationsList
 An API endpoint to discover a list of curations that can be specified in search API queries. Curations allow the API consumer to specify a curated set of content and describes the scope against which a Query will operate. It is not a format type.
@@ -50,11 +60,11 @@ Search for items of content that are available on www.ft.com.
 |-------------------|-------|----------
 | apiKey            | credentials| Api key
 | queryString       | String| Query to search
-| curations         | Array | List of curations. See getCurationsList endpoint for details
-| aspects           | Array | List of aspects. See getAspectsList endpoint for details
+| curations         | List  | List of curations. See getCurationsList endpoint for details
+| aspects           | List  | List of aspects. See getAspectsList endpoint for details
 | maxResults        | Number| Maximum number of results you would like to get. The default and maximum value of maxResults is 100.
 | offset            | Number| Zero based offset to specify where results should begin. The default is 0.
-| sortOrder         | String| Either ASC for ascending or DESC for descending order.
+| sortOrder         | Select| Either ASC for ascending or DESC for descending order.
 | sortField         | String| The name of a sortable field.
 | facetNames        | String| Facets allow consumers to navigate through their results by refining their query. Facets can be provided in the resultContext:
 | facetsMaxElements | Number| facetsMaxElements is the maximum number of facet elements to return (-1 is all facets)

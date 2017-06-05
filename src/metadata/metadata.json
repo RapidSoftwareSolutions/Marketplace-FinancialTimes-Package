@@ -163,7 +163,8 @@
           "structure": {
             "name": "curation",
             "type": "String",
-            "info": "Curation from getCurationsList endpoint"
+            "info": "Curation from getCurationsList endpoint",
+            "required": false
           }
         },
         {
